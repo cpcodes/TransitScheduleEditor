@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitScheduleEditor", "TransitScheduleEditor\TransitScheduleEditor.csproj", "{13594822-D496-4C8C-A9E3-DDB1844D3190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitScheduleEditor.Tests", "TransitScheduleEditor.Tests\TransitScheduleEditor.Tests.csproj", "{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13594822-D496-4C8C-A9E3-DDB1844D3190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13594822-D496-4C8C-A9E3-DDB1844D3190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13594822-D496-4C8C-A9E3-DDB1844D3190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13594822-D496-4C8C-A9E3-DDB1844D3190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7917B895-8CF2-4828-A1EC-47004ECBB228}
+	EndGlobalSection
+EndGlobal

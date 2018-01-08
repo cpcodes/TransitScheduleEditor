@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TransitScheduleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StaticTrains">
+          <Key>
+            <PropertyRef Name="StaticTrainId" />
+          </Key>
+          <Property Name="StaticTrainId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Train" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direction" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartTime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Platform" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Days" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrainID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BlockID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StopID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="stop_sequence" Type="int" Nullable="false" />
+          <Property Name="Trip_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NextBusDisplay.dbo.StopDisplay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StopDisplay">
+          <Key>
+            
+            
+            
+            <PropertyRef Name="StopID" />
+          </Key>
+          <Property Name="StopNumber" Type="int" Nullable="false" />
+          <Property Name="Show" Type="bit" Nullable="false" />
+          <Property Name="Platform" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StopID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NextBusDisplay.dbo.tblHoliDate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblHoliDate">
+          <Key>
+            <PropertyRef Name="ID" />
+            
+            
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Holiday" Type="date" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOW" Type="int" />
+        </EntityType>
+        <EntityContainer Name="TransitScheduleModelStoreContainer">
+          <EntitySet Name="StaticTrains" EntityType="Self.StaticTrains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StopDisplay" EntityType="Self.StopDisplay" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StopDisplay].[StopNumber] AS [StopNumber], 
+    [StopDisplay].[Show] AS [Show], 
+    [StopDisplay].[Platform] AS [Platform], 
+    [StopDisplay].[Description] AS [Description], 
+    [StopDisplay].[StopID] AS [StopID]
+    FROM [dbo].[StopDisplay] AS [StopDisplay]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblHoliDate" EntityType="Self.tblHoliDate" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblHoliDate].[ID] AS [ID], 
+    [tblHoliDate].[Holiday] AS [Holiday], 
+    [tblHoliDate].[Description] AS [Description], 
+    [tblHoliDate].[DOW] AS [DOW]
+    FROM [dbo].[tblHoliDate] AS [tblHoliDate]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TransitScheduleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StopDisplay">
+          <Key>
+            <PropertyRef Name="StopID" />
+          </Key>
+          <Property Name="StopNumber" Type="Int32" Nullable="false" />
+          <Property Name="Show" Type="Boolean" Nullable="false" />
+          <Property Name="Platform" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StopID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblHoliDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Holiday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOW" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="TransitScheduleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StopDisplay" EntityType="Self.StopDisplay" />
+          <EntitySet Name="tblHoliDate" EntityType="Self.tblHoliDate" />
+          <EntitySet Name="StaticTrains" EntityType="TransitScheduleModel.StaticTrain" />
+        </EntityContainer>
+        <EntityType Name="StaticTrain">
+          <Key>
+            <PropertyRef Name="StaticTrainId" />
+          </Key>
+          <Property Name="StaticTrainId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Train" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direction" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Platform" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Days" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrainID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlockID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StopID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stop_sequence" Type="Int32" Nullable="false" />
+          <Property Name="Trip_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TransitScheduleModelStoreContainer" CdmEntityContainer="TransitScheduleEntities">
+          <EntitySetMapping Name="StopDisplay">
+            <EntityTypeMapping TypeName="TransitScheduleModel.StopDisplay">
+              <MappingFragment StoreEntitySet="StopDisplay">
+                <ScalarProperty Name="StopNumber" ColumnName="StopNumber" />
+                <ScalarProperty Name="Show" ColumnName="Show" />
+                <ScalarProperty Name="Platform" ColumnName="Platform" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StopID" ColumnName="StopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHoliDate">
+            <EntityTypeMapping TypeName="TransitScheduleModel.tblHoliDate">
+              <MappingFragment StoreEntitySet="tblHoliDate">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DOW" ColumnName="DOW" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaticTrains">
+            <EntityTypeMapping TypeName="TransitScheduleModel.StaticTrain">
+              <MappingFragment StoreEntitySet="StaticTrains">
+                <ScalarProperty Name="Trip_id" ColumnName="Trip_id" />
+                <ScalarProperty Name="stop_sequence" ColumnName="stop_sequence" />
+                <ScalarProperty Name="StopID" ColumnName="StopID" />
+                <ScalarProperty Name="BlockID" ColumnName="BlockID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Platform" ColumnName="Platform" />
+                <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Train" ColumnName="Train" />
+                <ScalarProperty Name="StaticTrainId" ColumnName="StaticTrainId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
