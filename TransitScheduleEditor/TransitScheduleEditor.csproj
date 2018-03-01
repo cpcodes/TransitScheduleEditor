@@ -182,6 +182,8 @@
     <Content Include="Models\ScheduleModel.edmx.diagram">
       <DependentUpon>ScheduleModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\WebDeploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\ScheduleModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

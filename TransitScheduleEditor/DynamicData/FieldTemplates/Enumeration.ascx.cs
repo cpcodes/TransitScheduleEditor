@@ -1,13 +1,11 @@
 using System;
-using System.Collections.Specialized;
-using System.ComponentModel.DataAnnotations;
 using System.Web.DynamicData;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace TransitScheduleEditor {
-    public partial class EnumerationField : System.Web.DynamicData.FieldTemplateUserControl {
+namespace TransitScheduleEditor
+{
+    public partial class EnumerationField : FieldTemplateUserControl
+    {
         public override Control DataControl {
             get {
                 return Literal1;
@@ -22,7 +20,7 @@ namespace TransitScheduleEditor {
     
                 Type enumType = Column.GetEnumType();
                 if (enumType != null) {
-                    object enumValue = System.Enum.ToObject(enumType, FieldValue);
+                    object enumValue = Enum.ToObject(enumType, FieldValue);
                     return FormatFieldValue(enumValue);
                 }
     

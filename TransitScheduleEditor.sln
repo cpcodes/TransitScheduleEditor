@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitScheduleEditor", "Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitScheduleEditor.Tests", "TransitScheduleEditor.Tests\TransitScheduleEditor.Tests.csproj", "{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitScheduleEditorTests", "TransitScheduleEditorTests\TransitScheduleEditorTests.csproj", "{D31F433A-41F5-4197-AD0D-E524457F9AB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48B9E0D1-01D0-4D83-99BD-AD80E32D8F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31F433A-41F5-4197-AD0D-E524457F9AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31F433A-41F5-4197-AD0D-E524457F9AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31F433A-41F5-4197-AD0D-E524457F9AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31F433A-41F5-4197-AD0D-E524457F9AB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

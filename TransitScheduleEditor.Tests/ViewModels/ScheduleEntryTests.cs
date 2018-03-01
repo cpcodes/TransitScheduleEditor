@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TransitScheduleEditor.ViewModels;
+using TransitScheduleEditor.Models;
 
 namespace TransitScheduleEditor.ViewModels. Tests
 {
@@ -15,15 +15,15 @@ namespace TransitScheduleEditor.ViewModels. Tests
         public void DeparturePropertyReturnsStoredTimes(string value, string expected)
         {
             // Arrange
-            var scheduleEntry = new ScheduleEntry();
-            string result;
+            var scheduleEntry = new StaticTrain();
+            DateTime result;
 
             // Act
-            scheduleEntry.Departure = value;
+            scheduleEntry.Departure = DateTime.Parse(value);
             result = scheduleEntry.Departure;
 
             // Assert
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, result.ToString());
         }
 
         [DataTestMethod]
@@ -36,10 +36,10 @@ namespace TransitScheduleEditor.ViewModels. Tests
         public void DeparturePropertyThrowsArgumentOutOfRangeExceptionForBadValues(string value)
         {
             // Arrange
-            var scheduleEntry = new ScheduleEntry();
+            var scheduleEntry = new StaticTrain();
 
             // Act/Assert
-            scheduleEntry.Departure = value;
+            scheduleEntry.Departure = DateTime.Parse(value);
         }
     }
 }

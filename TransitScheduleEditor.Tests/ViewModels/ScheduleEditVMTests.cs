@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TransitScheduleEditor.ViewModels;
+using TransitScheduleEditor.Controllers;
 using TransitScheduleEditor.Models;
 using System;
 using System.Collections.Generic;
@@ -16,10 +16,10 @@ namespace TransitScheduleEditor.ViewModels.Tests
         public void getScheduleTest()
         {
             // Arrange
-            var obj = new ScheduleEditVM();
+            var obj = new ScheduleBL();
 
             // Act
-            var obj2 = obj.getSchedule();
+            var obj2 = obj.GetTrains("", "", "");
 
             // Assert
             Console.WriteLine($"Number of entries: {obj2.Count()}");
